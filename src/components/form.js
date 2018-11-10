@@ -66,6 +66,9 @@ export default class CalculationForm extends React.Component {
       case 'diesel':
         engineRatio = 75
         break
+      default: 
+        engineRatio = 50
+        break
     }
 
     const sbor = engineRatio * year * engineVolume / 1000
@@ -164,34 +167,38 @@ export default class CalculationForm extends React.Component {
       
         {
           shouldShowAnswer &&
-          <Segment piled padded='very'>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-              <Statistic>
-                <Statistic.Value>{result.nds} €</Statistic.Value>
-                <Statistic.Label>НДС</Statistic.Label>
-              </Statistic>
+          <div>
+            <Segment piled padded='very'>
+              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+                <Statistic>
+                  <Statistic.Value>{result.nds} €</Statistic.Value>
+                  <Statistic.Label>НДС</Statistic.Label>
+                </Statistic>
 
-              <Statistic>
-                <Statistic.Value>{result.sbor} €</Statistic.Value>
-                <Statistic.Label>Акцизный сбор</Statistic.Label>
-              </Statistic>
+                <Statistic>
+                  <Statistic.Value>{result.sbor} €</Statistic.Value>
+                  <Statistic.Label>Акцизный сбор</Statistic.Label>
+                </Statistic>
 
-              <Statistic>
-                <Statistic.Value>{result.poshlina} €</Statistic.Value>
-                <Statistic.Label>Ввозная пошлина</Statistic.Label>
-              </Statistic>
+                <Statistic>
+                  <Statistic.Value>{result.poshlina} €</Statistic.Value>
+                  <Statistic.Label>Ввозная пошлина</Statistic.Label>
+                </Statistic>
+              </div>
+
+              <div style={{ textAlign: 'center', margin: '2rem', fontWeight: 'bold', fontSize: '1.3rem' }}>ИТОГО</div>
+
+              <Statistic style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Statistic.Value>{price.value + result.nds + result.sbor + result.poshlina} €</Statistic.Value>
+                  <Statistic.Label>Цена авто в Украине</Statistic.Label>
+                </Statistic>
+            </Segment>
+
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Image />
             </div>
-
-            <div style={{ textAlign: 'center', margin: '2rem', fontWeight: 'bold', fontSize: '1.3rem' }}>ИТОГО</div>
-
-            <Statistic style={{ display: 'flex', justifyContent: 'center' }}>
-                <Statistic.Value>{price.value + result.nds + result.sbor + result.poshlina} €</Statistic.Value>
-                <Statistic.Label>Цена авто в Украине</Statistic.Label>
-              </Statistic>
-          </Segment>
+          </div>
         }
-
-        <Image />
       </>
     )
   }
