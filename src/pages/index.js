@@ -10,10 +10,9 @@ const IndexPage = () =>
     <p>
       Для подсчета стоимости растаможки автомобиля в Украине 2019 укажите параметры авто.
     </p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Form />    
+    <div style={{ margin: '4rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Form style={{ width: '500px' }}/>    
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 
 export default IndexPage
