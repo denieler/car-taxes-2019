@@ -1,0 +1,4 @@
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Redirect default Netlify subdomain to primary domain
+https://compassionate-raman-f6c431.netlify.com/* https://rastamozhka2019.co.ua/:splat 301!

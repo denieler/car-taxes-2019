@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Калькулятор растаможки авто 2019 в Украине',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
