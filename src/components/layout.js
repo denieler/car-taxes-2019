@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'keywords', content: 'растаможка, калькулятор, Украина, авто, 2019, стоимость растаможки, стоимость, онлайн' },
           ]}
         >
           <html lang="en" />
