@@ -1,4 +1,17 @@
-Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+[[redirects]]
+  from = "https://compassionate-raman-f6c431.netlify.com/*"
+  to = "https://rastamozhka2019.co.ua/:splat"
+  status = 301
+  force = true
 
-# Redirect default Netlify subdomain to primary domain
-https://compassionate-raman-f6c431.netlify.com/* https://rastamozhka2019.co.ua/:splat 301!
+[[redirects]]
+  from = "http://compassionate-raman-f6c431.netlify.com/*"
+  to = "http://rastamozhka2019.co.ua/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://rastamozhka2019.co.ua/*"
+  to = "https://rastamozhka2019.co.ua/:splat"
+  status = 301
+  force = true
