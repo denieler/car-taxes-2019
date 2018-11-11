@@ -27,6 +27,20 @@ const DISCOUNT = [
   { value: 2, text: '25% скидка, в 3-ий месяц действия закона' },
 ]
 
+const saveToLocalStorage = (key, value) => {
+  window.localStorage.setItem(key, value)
+}
+const getFromLocalStorage = (key) => {
+  const value = window.localStorage.getItem(key)
+  if (value === null) {
+    return null
+  }
+
+  const floatValue = Number.parseFloat(value)
+
+  return Number.isNaN(floatValue) ? value : floatValue
+}
+
 export default class CalculationForm extends React.Component {
   state = {
     type: 'passenger',
@@ -49,6 +63,26 @@ export default class CalculationForm extends React.Component {
     super()
 
     this.handleCalculateClick = this.handleCalculateClick.bind(this)
+
+    const type = getFromLocalStorage('type')
+    const engineType = getFromLocalStorage('engineType')
+    const engineVolume = getFromLocalStorage('engineVolume')
+    const year = getFromLocalStorage('year')
+    const price = getFromLocalStorage('price')
+    const discounted = getFromLocalStorage('discounted')
+
+    let loadedState = {}
+    type && (loadedState = {...loadedState, type})
+    engineType && (loadedState = {...loadedState, engineType})
+    engineVolume && (loadedState = {...loadedState, engineVolume})
+    year && (loadedState = {...loadedState, year})
+    price && (loadedState = {...loadedState, price})
+    discounted && (loadedState = {...loadedState, discounted})
+
+    this.state = {
+      ...this.state,
+      ...loadedState
+    }
   }
   
   calculate = () => {
@@ -60,6 +94,13 @@ export default class CalculationForm extends React.Component {
       price,
       discounted
     } = this.state
+
+    saveToLocalStorage('type', type)
+    saveToLocalStorage('engineType', engineType)
+    saveToLocalStorage('engineVolume', engineVolume)
+    saveToLocalStorage('year', year)
+    saveToLocalStorage('price', price)
+    saveToLocalStorage('discounted', discounted)
 
     year = 2019 - year + 1
     if (year > 15) {
