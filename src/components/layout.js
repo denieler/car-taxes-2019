@@ -18,7 +18,7 @@ const Layout = ({ children }) => (
           }
         },
         file (name: { eq: "facebook" }) {
-          publicURL
+          facebookImageUrl: publicURL
         }
       }
     `}
@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
-          <meta property="og:image" content={data.file.publicURL} />
+          <meta property="og:image" content={data.file.facebookImageUrl} />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
