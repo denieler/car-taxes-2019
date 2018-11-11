@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
-          <meta property="og:image" content={'https://rastamozhka2019.co.ua' + data.file.facebookImageUrl} />
+          <meta property="og:image" content={data.file.facebookImageUrl} />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
