@@ -27,12 +27,12 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: 'Онлайн калькулятор растаможки авто в Украине в 2019 году. Стоимость растаможки значительно изменяется в 2019 году по сравнению с предыдущими годами, поэтому предлагаем удобный инструмент для вычисления стоимости растаможки онлайн.' },
             { name: 'keywords', content: 'растаможка, калькулятор, Украина, авто, 2019, стоимость растаможки, стоимость, онлайн' },
           ]}
         >
           <html lang="en" />
-          <meta property="og:image" content={data.file.facebookImageUrl} />
+          <meta property="og:image" content={'https://rastamozhka2019.co.ua' + data.file.facebookImageUrl} />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
