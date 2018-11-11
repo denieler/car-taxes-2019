@@ -33,7 +33,7 @@ module.exports = {
       options: {
         trackingId: 'UA-129076057-1',
         // Puts tracking script in the head instead of the body
-        head: false,
+        head: true,
         cookieDomain: 'rastamozhka2019.co.ua',
       },
     },
