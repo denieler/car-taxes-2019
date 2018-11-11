@@ -66,17 +66,16 @@ export default class CalculationForm extends React.Component {
     }
 
     let engineRatio = 0
-    switch (engineType) {
-      case 'gasoline':
-        engineRatio = 50
-        break
-      case 'diesel':
-        engineRatio = 75
-        break
-      default: 
-        engineRatio = 50
-        break
-    }
+    if (engineType === 'gasoline' && engineVolume < 3000) {
+      engineRatio = 50
+    } else if (engineType === 'gasoline' && engineVolume >= 3000) {
+      engineRatio = 100
+    } else if (engineType === 'diesel' && engineVolume < 3500) {
+      engineRatio = 75
+    } else if (engineType === 'diesel' && engineVolume >= 3500) {
+      engineRatio = 150
+    }  
+
     if (discounted) {
       engineRatio = engineRatio / 2
     }
