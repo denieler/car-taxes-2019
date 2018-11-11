@@ -5,9 +5,9 @@ import Image from './image'
 
 const TYPES = [
   { value: 'passenger', text: 'легковой' },
-  { value: 'moto', text: 'мото' },
-  { value: 'truck', text: 'грузовой' },
-  { value: 'bus', text: 'автобус' },
+  // { value: 'moto', text: 'мото' },
+  // { value: 'truck', text: 'грузовой' },
+  // { value: 'bus', text: 'автобус' },
 ]
 
 const ENGINE_TYPES = [
@@ -83,7 +83,9 @@ export default class CalculationForm extends React.Component {
       engineRatio = engineRatio * 0.75
     }
 
-    const sbor = engineRatio * year * engineVolume / 1000
+    const sbor = engineType === 'electro'
+      ? 109 // 109.129 EUR за 1 электро двигатель
+      : engineRatio * year * engineVolume / 1000
     let poshlina = price * 0.1 // 10% пошлина
     if (year === 1 && engineVolume >= 3000) {
       poshlina = price * 0.05
