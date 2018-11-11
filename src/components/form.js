@@ -28,11 +28,11 @@ const DISCOUNT = [
 ]
 
 const saveToLocalStorage = (key, value) => {
-  window.localStorage.setItem(key, value)
+  typeof window !== 'undefined' && window.localStorage.setItem(key, value)
 }
 const getFromLocalStorage = (key) => {
-  const value = window.localStorage.getItem(key)
-  if (value === null) {
+  const value = typeof window !== 'undefined' && window.localStorage.getItem(key)
+  if (value === null || value === undefined) {
     return null
   }
 
