@@ -1,10 +1,21 @@
 import React from 'react'
+import { Menu } from 'semantic-ui-react'
+import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Form from '../components/form'
 
 const IndexPage = () =>
   <Layout>
+    <Menu pointing secondary>
+      <Menu.Item name='home' active={true}>
+        <Link to='/' style={{ color: 'rgba(0,0,0,.95)' }}>Главная</Link>
+      </Menu.Item>
+
+      <Menu.Item name='documents' active={false}>
+        <Link to='/documents' style={{ color: 'rgba(0,0,0,.95)' }}>Документы</Link>
+      </Menu.Item>
+    </Menu>
     <h1>Онлайн калькулятор растаможки</h1>
     <p>
       Для подсчета стоимости растаможки автомобиля в Украине 2019 укажите параметры авто.
