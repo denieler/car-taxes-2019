@@ -22,8 +22,9 @@ const YEARS = new Array(23).fill(0).map((_, index) => ({
 }))
 
 const DISCOUNT = [
-  { value: false, text: 'Обычный' },
-  { value: true, text: '50% скидка, первые 3 месяца действия закона' },
+  { value: 0, text: 'Обычный' },
+  { value: 1, text: '50% скидка, первые 2 месяца действия закона' },
+  { value: 2, text: '25% скидка, в 3-ий месяц действия закона' },
 ]
 
 export default class CalculationForm extends React.Component {
@@ -33,7 +34,7 @@ export default class CalculationForm extends React.Component {
     engineVolume: 1500,
     year: 2019,
     price: 4500,
-    discounted: false,
+    discounted: 0,
 
     isLoading: false,
     shouldShowAnswer: false,
@@ -76,8 +77,10 @@ export default class CalculationForm extends React.Component {
       engineRatio = 150
     }  
 
-    if (discounted) {
-      engineRatio = engineRatio / 2
+    if (discounted === 1) {
+      engineRatio = engineRatio * 0.5
+    } else if (discounted === 2) {
+      engineRatio = engineRatio * 0.75
     }
 
     const sbor = engineRatio * year * engineVolume / 1000
