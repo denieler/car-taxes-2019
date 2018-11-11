@@ -21,6 +21,11 @@ const YEARS = new Array(23).fill(0).map((_, index) => ({
   text: 2019 - index
 }))
 
+const DISCOUNT = [
+  { value: false, text: 'Обычный' },
+  { value: true, text: '50% скидка, первые 3 месяца действия закона' },
+]
+
 export default class CalculationForm extends React.Component {
   state = {
     type: 'passenger',
@@ -28,6 +33,7 @@ export default class CalculationForm extends React.Component {
     engineVolume: 1500,
     year: 2019,
     price: 4500,
+    discounted: false,
 
     isLoading: false,
     shouldShowAnswer: false,
@@ -50,7 +56,8 @@ export default class CalculationForm extends React.Component {
       engineType,
       engineVolume,
       year,
-      price
+      price,
+      discounted
     } = this.state
 
     year = 2019 - year + 1
@@ -69,6 +76,9 @@ export default class CalculationForm extends React.Component {
       default: 
         engineRatio = 50
         break
+    }
+    if (discounted) {
+      engineRatio = engineRatio / 2
     }
 
     const sbor = engineRatio * year * engineVolume / 1000
@@ -122,6 +132,7 @@ export default class CalculationForm extends React.Component {
     const engineVolume = this.useFormField('engineVolume')
     const year = this.useFormField('year')
     const price = this.useFormField('price')
+    const discounted = this.useFormField('discounted')
 
     return (
       <>
@@ -155,6 +166,11 @@ export default class CalculationForm extends React.Component {
               <Input placeholder='4500' type='number' {...price}/>
               <span style={{ marginLeft: '1rem' }}>EUR</span>
             </div>
+          </Form.Field>
+
+          <Form.Field>
+            <label>Понижающий коэффициент</label>
+            <Dropdown {...discounted} fluid selection options={DISCOUNT} />
           </Form.Field>
 
           <Button
