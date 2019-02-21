@@ -23,8 +23,7 @@ const YEARS = new Array(23).fill(0).map((_, index) => ({
 
 const DISCOUNT = [
   { value: 0, text: 'Обычный' },
-  { value: 1, text: '50% скидка, первые 2 месяца действия закона' },
-  { value: 2, text: '25% скидка, в 3-ий месяц действия закона' },
+  { value: 1, text: '50% скидка, первые 90 дней действия закона с 1 января 2019' },
 ]
 
 const saveToLocalStorage = (key, value) => {
