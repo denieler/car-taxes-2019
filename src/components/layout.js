@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
-import './layout.css'
 
 import 'semantic-ui-css/semantic.min.css'
+import './layout.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -33,6 +33,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
           <meta property="og:image" content={data.file.facebookImageUrl} />
+          <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'></link>
         </Helmet>
         <Header />
         <div

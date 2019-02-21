@@ -1,20 +1,11 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import Menu from '../components/menu'
 
 const SecondPage = () => (
   <Layout>
-    <Menu pointing secondary>
-      <Menu.Item name='home' active={false}>
-        <Link to='/' style={{ color: 'rgba(0,0,0,.95)' }}>Главная</Link>
-      </Menu.Item>
-
-      <Menu.Item name='documents' active={true}>
-        <Link to='/documents' style={{ color: 'rgba(0,0,0,.95)' }}>Документы</Link>
-      </Menu.Item>
-    </Menu>
+    <Menu page='documents' />
     <h1>Документы по растаможке авто в Украине 2019</h1>
     <p>
       Здесь собраны все наиболее важные документы по растаможке авто, которые касаются 
