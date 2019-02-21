@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import ImageLogo from './imageLogo'
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <div
     style={{
       background: '#F3CD59',
@@ -12,21 +13,27 @@ const Header = ({ siteTitle }) => (
       style={{
         margin: '0 auto',
         maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
+        padding: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-          tabIndex={-1}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <Link
+        to='/'
+        style={{
+          color: 'white',
+          textDecoration: 'none',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        tabIndex={-1}
+      >
+        <svg viewBox='0 0 80 80' fill='white' height='100px'>
+          <circle r='40' cx='40' cy='40' />
+        </svg>
+        <ImageLogo />
+      </Link>
     </div>
   </div>
 )

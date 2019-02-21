@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
           <meta property="og:image" content={data.file.facebookImageUrl} />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
         <div
           style={{
             margin: '0 auto',
